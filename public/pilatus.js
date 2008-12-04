@@ -57,6 +57,12 @@ var Pilatus = function() {
     itemKeys = ik;
   }
 
+  var maxEntries = null;
+
+  function setMaxEntries (i) {
+    maxEntries = i;
+  }
+
   function linkInnerHtml (item) {
     return '<a href="' + item.link + '">' + item.link + '</a>';
   }
@@ -64,7 +70,7 @@ var Pilatus = function() {
   function render (parentDivId, json) {
 
     var l = json.value.items.length;
-    if (l > 20) l = 20;
+    if (maxEntries && l > maxEntries) l = maxEntries;
 
     var parentDiv = document.getElementById(parentDivId);
 
@@ -93,7 +99,8 @@ var Pilatus = function() {
     render: render,
     loadAndRender: loadAndRender,
     setCssPrefix: setCssPrefix,
-    setItemKeys: setItemKeys
+    setItemKeys: setItemKeys,
+    setMaxEntries: setMaxEntries
   };
 }();
 

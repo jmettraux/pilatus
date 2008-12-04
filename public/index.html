@@ -23,7 +23,11 @@
 </head>
 
 <body>
-  <div id="feed"></div>
+
+  <div id="feed">
+    <!-- entries will get inserted here... -->
+  </div>
+
   <script>
 
     //Pilatus.setCssPrefix('myfeed');
@@ -37,6 +41,12 @@
     //]);
       //
       // change the order and elements displayed for each feed entry
+
+    //Pilatus.setMaxEntries(7);
+      //
+      // maxEntries is null by default, it means all the entries will be 
+      // rendered, note that you can use the 'Truncate' element in your Yahoo
+      // pipe to limit the number at the source (recommended).
 
     Pilatus.loadAndRender(
       "feed", 

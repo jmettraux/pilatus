@@ -7,7 +7,7 @@ Pilatus is a small javascript library for loading the result of a Yahoo Pipe in 
 
 For instance :
 
-  <script src='http://github.com/jmettraux/pilatus/tree/master/public/pilatus.js'><script>
+  <script src='/pilatus.js'><script>
 
   <div id='feed'></div>
 
@@ -41,6 +41,8 @@ You can change the CSS prefix by doing
   Pilatus.setCssPrefix('myprefix');
 
 before the call to Pilatus.loadAndRender(...)
+
+(see http://github.com/jmettraux/pilatus/tree/master/public/index.html for commented out customization examples)
 
 
 == testing
