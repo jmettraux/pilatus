@@ -10,6 +10,10 @@
 
 var Pilatus = function() {
 
+  var cssPrefix = 'pilatus';
+
+  function setCssPrefix (p) { cssPrefix = p; }
+
   function createElt (parentElt, eName, eAttributes, eText) {
     var e = document.createElement(eName);
     if (eAttributes) {
@@ -40,11 +44,22 @@ var Pilatus = function() {
       { 'src': pipeUrl });
   }
 
-  var ITEM_KEYS = [
+  var itemKeys = [
     [ 'title' ],
+    [ 'link' ],
     [ 'author', 'name' ],
-    [ 'pubDate' ]
+    [ 'pubDate' ],
+    //[ 'content', 'content' ],
+    [ 'description' ]
   ];
+
+  function setItemKeys (ik) {
+    itemKeys = ik;
+  }
+
+  function linkInnerHtml (item) {
+    return '<a href="' + item.link + '">' + item.link + '</a>';
+  }
 
   function render (parentDivId, json) {
 
@@ -58,32 +73,27 @@ var Pilatus = function() {
       var item = json.value.items[i];
 
       var eEntry = createElt(
-        parentDiv, 'div', { 'class': 'pilatus_entry' });
+        parentDiv, 'div', { 'class': cssPrefix + '_entry' });
 
-      for (var j in ITEM_KEYS) {
-        var k = ITEM_KEYS[j];
-        var kl = 'pilatus_' + k.join('_');
+      for (var j in itemKeys) {
+        var k = itemKeys[j];
+        var kl = cssPrefix + '_' + k.join('_');
         var sk = k[1];
         k = k[0];
         var v = item[k];
         if (sk) v = v[sk];
-        var e = createElt(eEntry, 'div', { 'class': kl }, v);
-      }
-
-      var eLink = createElt(eEntry, 'div', { 'class': 'pilatus_link' });
-      eLink.innerHTML = '<a href="' + item.link + '">' + item.link + '</a>';
-
-      if (item.content) {
-         var eContent = createElt(
-           eEntry, 'div', { 'class': 'pilatus_content' });
-         eContent.innerHTML = item.content.content;
+        if (k == 'link') v = linkInnerHtml(item);
+        //createElt(eEntry, 'div', { 'class': kl }, v);
+        createElt(eEntry, 'div', { 'class': kl }).innerHTML = v;
       }
     }
   }
 
   return { 
     render: render,
-    loadAndRender: loadAndRender
+    loadAndRender: loadAndRender,
+    setCssPrefix: setCssPrefix,
+    setItemKeys: setItemKeys
   };
 }();
 

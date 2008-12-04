@@ -1,3 +1,4 @@
 
-[ ] tunable css_prefix
+[x] tunable css prefix
+[x] tunable entry item order
 

@@ -1,7 +1,12 @@
 
 <html>
+
 <head>
+
+  <title>Pilatus, a js lib for displaying the result of a Yahoo Pipe</title>
+
   <script src='/pilatus.js'></script>
+
   <style>
     body {
       font-family: Helvetica, sans-serif;
@@ -14,10 +19,25 @@
       font-size: 2em;
     }
   </style>
+
 </head>
+
 <body>
   <div id="feed"></div>
   <script>
+
+    //Pilatus.setCssPrefix('myfeed');
+      //
+      // the default CSS prefix is 'pilatus'
+
+    //Pilatus.setItemKeys([
+    //  [ 'title' ],
+    //  [ 'author', 'name' ],
+    //  [ 'link' ]
+    //]);
+      //
+      // change the order and elements displayed for each feed entry
+
     Pilatus.loadAndRender(
       "feed", 
       "http://pipes.yahoo.com/pipes/pipe.run?_id=XGwyd_LA3RGNSAMs6icw5g");
