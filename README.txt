@@ -20,7 +20,13 @@ For instance :
 
 == testing
 
-Pilatus comes with a tiny Ruby Rack application.
+Pilatus comes with a tiny Ruby Rack/Mongrel application.
+
+(if necessary
+
+  sudo gem install rack mongrel
+
+)
 
   ruby start.rb
 
