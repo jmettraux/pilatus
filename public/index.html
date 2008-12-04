@@ -5,8 +5,6 @@
 
   <title>Pilatus / http://github.com/jmettraux/pilatus</title>
 
-  <script src='/pilatus.js'></script>
-
   <style>
     body {
       font-family: Helvetica, sans-serif;
@@ -20,16 +18,9 @@
     }
   </style>
 
-</head>
-
-<body>
-
-  <div id="feed">
-    <!-- entries will get inserted here... -->
-  </div>
+  <script type="text/javascript" src='/pilatus.js'></script>
 
   <script>
-
     //Pilatus.setCssPrefix('myfeed');
       //
       // the default CSS prefix is 'pilatus'
@@ -48,9 +39,21 @@
       // rendered, note that you can use the 'Truncate' element in your Yahoo
       // pipe to limit the number at the source (recommended).
 
-    Pilatus.loadAndRender(
-      "feed", 
-      "http://pipes.yahoo.com/pipes/pipe.run?_id=XGwyd_LA3RGNSAMs6icw5g");
+    function loadFeeds() {
+
+      Pilatus.loadAndRender(
+        "feed",
+        "http://pipes.yahoo.com/pipes/pipe.run?_id=XGwyd_LA3RGNSAMs6icw5g");
+    }
   </script>
+</head>
+
+<body onload="loadFeeds();">
+
+  <div id="feed">
+    <!-- entries will get inserted here... -->
+  </div>
+
 </body>
 </html>
+

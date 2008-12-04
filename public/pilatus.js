@@ -31,8 +31,9 @@ var Pilatus = function() {
 
     createElt(
       document.body,
+      //document.getElementsByTagName('head')[0],
       'script',
-      {},
+      { 'type': 'text/javascript' },
       "function " + callbackName + " (json) {"+
       " Pilatus.render('"+parentDivId+"', json); }");
 
@@ -40,8 +41,9 @@ var Pilatus = function() {
 
     createElt(
       document.body,
+      //document.getElementsByTagName('head')[0],
       'script',
-      { 'src': pipeUrl });
+      { 'type': 'text/javascript', 'src': pipeUrl });
   }
 
   var itemKeys = [
