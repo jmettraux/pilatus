@@ -7,7 +7,7 @@ Pilatus is a small javascript library for loading the result of a Yahoo Pipe in 
 
 For instance :
 
-  <script src='/javascripts/pilatus.js'><script>
+  <script src='http://github.com/jmettraux/pilatus/tree/master/public/pilatus.js'><script>
 
   <div id='feed'></div>
 
