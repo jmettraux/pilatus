@@ -14,12 +14,31 @@ var Pilatus = function() {
 
   function setCssPrefix (p) { cssPrefix = p; }
 
-  function createElt (parentElt, eName, eAttributes, eText) {
-    var e = document.createElement(eName);
+  var itemKeys = [
+    [ 'title' ],
+    [ 'link' ],
+    [ 'author', 'name' ],
+    [ 'pubDate' ],
+    //[ 'content', 'content' ],
+    [ 'description' ]
+  ];
+
+  function setItemKeys (ik) {
+    itemKeys = ik;
+  }
+
+  var maxEntries = null;
+
+  function setMaxEntries (i) {
+    maxEntries = i;
+  }
+
+  function createElt (parentElt, eTag, eAttributes, eText) {
+    var e = document.createElement(eTag);
     if (eAttributes) {
       for (var k in eAttributes) { e.setAttribute(k, eAttributes[k]); }
     }
-    if (eText) e.appendChild(document.createTextNode(eText));
+    if (eText) e.text = eText;
     parentElt.appendChild(e);
     return e;
   }
@@ -44,25 +63,6 @@ var Pilatus = function() {
       //document.getElementsByTagName('head')[0],
       'script',
       { 'type': 'text/javascript', 'src': pipeUrl });
-  }
-
-  var itemKeys = [
-    [ 'title' ],
-    [ 'link' ],
-    [ 'author', 'name' ],
-    [ 'pubDate' ],
-    //[ 'content', 'content' ],
-    [ 'description' ]
-  ];
-
-  function setItemKeys (ik) {
-    itemKeys = ik;
-  }
-
-  var maxEntries = null;
-
-  function setMaxEntries (i) {
-    maxEntries = i;
   }
 
   function linkInnerHtml (item) {
