@@ -2,4 +2,5 @@
 [x] tunable css prefix
 [x] tunable entry item order
 [x] limit number of items fetched (Truncate in Pipes)
+[ ] let json be available outside of the render
 

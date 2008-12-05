@@ -89,7 +89,7 @@ var Pilatus = function() {
         var sk = k[1];
         k = k[0];
         var v = item[k];
-        if (sk) v = v[sk];
+        if (v && sk) v = v[sk];
         if (k == 'link') v = linkInnerHtml(item);
         //createElt(eEntry, 'div', { 'class': kl }, v);
         createElt(eEntry, 'div', { 'class': kl }).innerHTML = v;
