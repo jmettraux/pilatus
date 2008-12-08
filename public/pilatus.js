@@ -45,12 +45,10 @@ var Pilatus = function() {
 
   function loadAndRender (parentDivId, pipeUrl) {
 
-    var t = (new Date()).getTime();
-    var callbackName = "_" + t + "_pilatus_callback";
+    var callbackName = "_" + parentDivId + "_pilatus_callback";
 
     createElt(
       document.body,
-      //document.getElementsByTagName('head')[0],
       'script',
       { 'type': 'text/javascript' },
       "function " + callbackName + " (json) {"+
@@ -60,7 +58,6 @@ var Pilatus = function() {
 
     createElt(
       document.body,
-      //document.getElementsByTagName('head')[0],
       'script',
       { 'type': 'text/javascript', 'src': pipeUrl });
   }
@@ -91,7 +88,6 @@ var Pilatus = function() {
         var v = item[k];
         if (v && sk) v = v[sk];
         if (k == 'link') v = linkInnerHtml(item);
-        //createElt(eEntry, 'div', { 'class': kl }, v);
         createElt(eEntry, 'div', { 'class': kl }).innerHTML = v;
       }
     }

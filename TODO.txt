@@ -3,4 +3,6 @@
 [x] tunable entry item order
 [x] limit number of items fetched (Truncate in Pipes)
 [ ] let json be available outside of the render
+[ ] url += "?a=b&c" beware, sometimes it's += "&a=b&c"...
+[ ] use div id instead of new Date for anonymous callback
 
